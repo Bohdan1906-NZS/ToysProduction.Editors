@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Common.Entities;
 using ToysProduction.Entities;
 
-namespace ToysProducer.ConsoleEditors.Studying {
+namespace ToysProduction.ConsoleEditors.Studying {
     internal static class EntitiesTraining {
         internal static void Run() {
             Console.WriteLine(" === EntitiesTraining ===");

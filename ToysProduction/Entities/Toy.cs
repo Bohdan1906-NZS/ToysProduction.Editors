@@ -2,9 +2,6 @@ using Common.Entities;
 
 namespace ToysProduction.Entities {
     public class Toy : Entity {
-
-        public int Id { get; set; }
-        
         public string Name { get; set; }
         public string Category { get; set; }
         public string Material { get; set; }
@@ -12,10 +9,11 @@ namespace ToysProduction.Entities {
         public Producer Producer { get; set; }
         public string Description { get; set; }
 
-        public override string Key { get { return Name; } }
+        public override string Key {
+            get { return Name; }
+        }
 
-        public Toy(string name, Producer producer, decimal? price,
-                    string category, string material, string description) {
+        public Toy(string name, Producer producer, decimal? price, string category, string material, string description) {
             Name = name;
             Category = category;
             Material = material;
@@ -25,7 +23,7 @@ namespace ToysProduction.Entities {
         }
 
         public Toy(string name, Producer producer, decimal? price, string category, string material)
-            : this(name, producer,price, category, material, null) { }
+            : this(name, producer, price, category, material, null) { }
 
         public Toy() : this(null, null, null, null, null, null) { }
 
@@ -38,13 +36,7 @@ namespace ToysProduction.Entities {
                 "\t  Матеріал: {4}\n" +
                 "\t  Ціна: {5}\n" +
                 "\t  Опис: {6}",
-                Id,
-                Name,
-                Producer?.Key,
-                Category,
-                Material,
-                Price,
-                Description
+                Id, Name, Producer != null ? Producer.Key : "null", Category, Material, Price, Description
             );
         }
     }

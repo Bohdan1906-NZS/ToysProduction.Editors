@@ -1,6 +1,6 @@
 using System;
 using Common.ConsoleIO;
-using ToysProducer.ConsoleEditors.Studying;
+using ToysProduction.ConsoleEditors.Studying;
 
 namespace ToysProduction.ConsoleEditors {
     internal class Program {
@@ -12,6 +12,7 @@ namespace ToysProduction.ConsoleEditors {
             Console.WriteLine(" Реалізація редактора даних ПО \"Поділ Світу\"");
 
             EntitiesTraining.Run();
+            DataTraining.Run();
 
             Console.ReadKey(true);
         }

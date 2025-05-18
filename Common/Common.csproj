@@ -40,8 +40,11 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Collection\CollectionMethods.cs" />
         <Compile Include="ConsoleIO\ConsoleSettings.cs" />
         <Compile Include="Entities\Entity.cs" />
+        <Compile Include="Interfaces\Extensions\KeyablesMethods.cs" />
+        <Compile Include="Interfaces\IKeyable.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>

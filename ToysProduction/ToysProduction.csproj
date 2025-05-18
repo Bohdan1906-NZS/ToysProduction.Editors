@@ -40,6 +40,10 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Data\DataSet.cs" />
+        <Compile Include="Data\Formatting\FormattingMethods.cs" />
+        <Compile Include="Data\Interfaces\IDataSet.cs" />
+        <Compile Include="Data\Testing\DataCreation.cs" />
         <Compile Include="Entities\Producer.cs" />
         <Compile Include="Entities\Toy.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
