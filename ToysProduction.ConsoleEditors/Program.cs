@@ -1,15 +1,15 @@
 using System;
 using Common.ConsoleIO;
-using ToysProducer.ConsoleEditors.Studying;
+using ToysProduction.ConsoleEditors.Studying;
 
 namespace ToysProduction.ConsoleEditors {
     internal class Program {
         static void Main(string[] args) {
-            Console.Title = "WorldDividing.ConsoleEditor (Стець А. М.)";
+            Console.Title = "ToysProduction.ConsoleEditors (Кошелєв Б. В.)";
 
             ConsoleSettings.SetConsoleParam();
 
-            Console.WriteLine(" Реалізація редактора даних ПО \"Поділ Світу\"");
+            Console.WriteLine(" Реалізація редактора даних ПО \"Виробництво іграшок\"");
 
             EntitiesTraining.Run();
 

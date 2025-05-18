@@ -3,7 +3,7 @@ using Common.Entities;
 namespace ToysProduction.Entities {
     public class Toy : Entity {
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
         
         public string Name { get; set; }
         public string Category { get; set; }

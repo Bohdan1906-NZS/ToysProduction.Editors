@@ -3,7 +3,7 @@ using Common.Entities;
 namespace ToysProduction.Entities {
     public class Producer : Entity {
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         public string Name { get; set; }
         public string Country { get; set; }
@@ -13,7 +13,7 @@ namespace ToysProduction.Entities {
 
         public override string Key { get { return Name; } }
 
-        public override string ToString() { //
+        public  string ToString() { //override
             return string.Format(
                 "\tВиробник №{0}\n" +
                 "\t  Назва: {1}\n" +

@@ -10,7 +10,7 @@ namespace Common.Entities {
 
         public abstract string Key { get; }
 
-        public override string ToString() { //sealed 
+        public override string ToString() {
             return Key;
         }
 
