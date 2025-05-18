@@ -1,0 +1,11 @@
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/bin/Debug/ToysProduction.ConsoleEditors.exe
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/bin/Debug/ToysProduction.ConsoleEditors.pdb
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/bin/Debug/Common.dll
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/bin/Debug/ToysProduction.dll
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/bin/Debug/Common.pdb
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/bin/Debug/ToysProduction.pdb
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/obj/Debug/ToysProduction.ConsoleEditors.csproj.AssemblyReference.cache
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/obj/Debug/ToysProduction.ConsoleEditors.csproj.CoreCompileInputs.cache
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/obj/Debug/ToysProduction.ConsoleEditors.csproj.CopyComplete
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/obj/Debug/ToysProduction.ConsoleEditors.exe
+/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/ToysProduction.ConsoleEditors/obj/Debug/ToysProduction.ConsoleEditors.pdb
