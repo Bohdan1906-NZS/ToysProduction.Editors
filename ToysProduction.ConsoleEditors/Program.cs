@@ -11,8 +11,9 @@ namespace ToysProduction.ConsoleEditors {
 
             Console.WriteLine(" Реалізація редактора даних ПО \"Поділ Світу\"");
 
-            EntitiesTraining.Run();
-            DataTraining.Run();
+            //EntitiesTraining.Run();
+            //DataTraining.Run();
+            FileIoTraining.Run();
 
             Console.ReadKey(true);
         }

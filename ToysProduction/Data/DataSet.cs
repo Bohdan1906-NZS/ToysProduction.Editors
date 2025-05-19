@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ToysProduction.Data.Interfaces;
 using ToysProduction.Entities;
+using ToysProduction.Data.Formatting;
 
 namespace ToysProduction.Data {
     public class DataSet : IDataSet {
@@ -45,6 +46,10 @@ namespace ToysProduction.Data {
 
         public virtual bool IsEmpty() {
             return _producers.Count == 0 && _toys.Count == 0;
+        }
+
+        public override string ToString() {
+            return this.ToDataString("Toys Production Data");
         }
     }
 }

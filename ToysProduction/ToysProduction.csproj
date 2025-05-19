@@ -43,6 +43,7 @@
         <Compile Include="Data\DataSet.cs" />
         <Compile Include="Data\Formatting\FormattingMethods.cs" />
         <Compile Include="Data\Interfaces\IDataSet.cs" />
+        <Compile Include="Data\IO\XmlFileIoController.cs" />
         <Compile Include="Data\Testing\DataCreation.cs" />
         <Compile Include="Entities\Producer.cs" />
         <Compile Include="Entities\Toy.cs" />
