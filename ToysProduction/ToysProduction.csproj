@@ -40,8 +40,10 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Data\DataContext.cs" />
         <Compile Include="Data\DataSet.cs" />
         <Compile Include="Data\Formatting\FormattingMethods.cs" />
+        <Compile Include="Data\Interfaces\IDataContext.cs" />
         <Compile Include="Data\Interfaces\IDataSet.cs" />
         <Compile Include="Data\IO\BinaryFileIoController.cs" />
         <Compile Include="Data\IO\XmlFileIoController.cs" />

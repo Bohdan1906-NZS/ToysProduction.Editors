@@ -51,7 +51,7 @@ namespace ToysProduction.ConsoleEditors.Studying {
             Console.WriteLine(dataSet.Producers.ToKeyList("Producers"));
             Console.WriteLine(dataSet.Producers.ToKeyLine("Producers"));
             Console.WriteLine(dataSet.Toys.ToKeyList("Toys"));
-            Console.WriteLine(dataSet.ToKeyList("KeyList:"));
+            //Console.WriteLine(dataSet.ToKeyList("KeyList:"));
         }
     }
 }

@@ -39,9 +39,12 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="BaseDataContext.cs" />
+        <Compile Include="Interfaces\IBaseDataContext.cs" />
+        <Compile Include="Interfaces\IBaseDataSet.cs" />
+        <Compile Include="Interfaces\IDataChangeable.cs" />
         <Compile Include="IO\BaseFileTypeInformer.cs" />
         <Compile Include="IO\FileTypeSelector.cs" />
-        <Compile Include="IO\Interfaces\IBaseDataSet.cs" />
         <Compile Include="IO\Interfaces\IFileIoController.cs" />
         <Compile Include="IO\Interfaces\IFileTypeInformer.cs" />
         <Compile Include="IO\Interfaces\IFileTypeSelector.cs" />

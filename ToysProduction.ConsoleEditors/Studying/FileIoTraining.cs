@@ -22,7 +22,8 @@ namespace ToysProduction.ConsoleEditors.Studying {
             Console.WriteLine(" === FileIoTraining ===");
             //StudyXmlFileIo();
             //StudyBinaryFileIo();
-            StudyFileTypeSelection();
+            //StudyFileTypeSelection();
+            StudyDataContextIo();
         }
 
         /// <summary>
@@ -88,6 +89,44 @@ namespace ToysProduction.ConsoleEditors.Studying {
             Console.WriteLine(dataSet.ToDataString("dataSet"));
             fileIoController.Load(dataSet, fileName);
             Console.WriteLine(dataSet.ToDataString("dataSet"));
+        }
+
+        /// <summary>
+        /// Тестує операції з контекстом даних.
+        /// </summary>
+        private static void StudyDataContextIo() {
+            Console.WriteLine(" --- StudyDataContextIo ---");
+            IFileIoController<IDataSet> fileIoController = new BinaryFileIoController();
+            DataContext dataContext = new DataContext(fileIoController);
+            Console.WriteLine("dataContext:\n" + dataContext);
+
+            Console.WriteLine(new string('-', Console.BufferWidth - 1));
+            dataContext.DataChanged += DataContext_DataChanged;
+            Console.WriteLine("dataContext.IsEmpty():\t" + dataContext.IsEmpty());
+            dataContext.CreateTestingData();
+            Console.WriteLine("dataContext.IsEmpty():\t" + dataContext.IsEmpty());
+
+            Console.WriteLine(dataContext.DataSet.ToStatisticsString("StatisticsString")); // Змінено: виклик на DataSet
+            DataContext dataContext2 = new DataContext(fileIoController);
+            Console.WriteLine("dataContext2.IsEmpty():\t" + dataContext2.IsEmpty());
+            dataContext.CopyTo(dataContext2);
+            Console.WriteLine("dataContext2.IsEmpty():\t" + dataContext2.IsEmpty());
+            dataContext.Clear();
+            Console.WriteLine("dataContext.IsEmpty():\t" + dataContext.IsEmpty());
+            Console.WriteLine("dataContext2:\n" + dataContext2);
+
+            Console.WriteLine(new string('=', Console.BufferWidth - 1));
+            string directoryName = @"..\..\files";
+            dataContext2.DirectoryName = directoryName;
+            dataContext2.Save();
+            dataContext.DirectoryName = directoryName;
+            dataContext.Load();
+            Console.WriteLine("dataContext.IsEmpty():\t" + dataContext.IsEmpty());
+            Console.WriteLine("dataContext:\n" + dataContext);
+        }
+
+        private static void DataContext_DataChanged(object sender, EventArgs e) {
+            Console.WriteLine("DataContext_DataChanged");
         }
     }
 }
