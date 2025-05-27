@@ -47,6 +47,10 @@
         <Compile Include="Studying\FileIoTraining.cs" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Common.Data\Common.Data.csproj">
+        <Project>{eaec09e1-2699-469b-91a6-47c477f50816}</Project>
+        <Name>Common.Data</Name>
+      </ProjectReference>
       <ProjectReference Include="..\Common\Common.csproj">
         <Project>{22b23e6d-b7d3-4e73-b375-820f9211f248}</Project>
         <Name>Common</Name>

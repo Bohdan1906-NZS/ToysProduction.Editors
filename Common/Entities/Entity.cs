@@ -1,6 +1,8 @@
+using System;
 using Common.Interfaces;
 
 namespace Common.Entities {
+    [Serializable]
     public abstract class Entity : IKeyable {
         public int Id { get; set; }
 

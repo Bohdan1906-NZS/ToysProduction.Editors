@@ -1,6 +1,8 @@
+using System;
 using Common.Entities;
 
 namespace ToysProduction.Entities {
+    [Serializable]
     public class Producer : Entity {
         public string Name { get; set; }
         public string Country { get; set; }

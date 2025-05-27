@@ -1,3 +1,5 @@
+using Common.Data.IO;
+using Common.Data.IO.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,17 +14,14 @@ namespace ToysProduction.Data.IO {
     /// <summary>
     /// Контролер для операцій введення-виведення даних у форматі XML.
     /// </summary>
-    public sealed class XmlFileIoController {
+    public class XmlFileIoController : BaseFileTypeInformer, IFileIoController<IDataSet> {
         /// <summary>
-        /// Розширення файлу для XML.
+        /// Ініціалізує новий екземпляр для XML-файлів.
         /// </summary>
-        public string FileExtension { get { return ".xml"; } }
+        public XmlFileIoController() : base("Файли формату XML", ".xml") { }
 
-        /// <summary>
-        /// Записує дані колекції виробників у потік XML.
-        /// </summary>
-        /// <param name="collection">Колекція виробників.</param>
-        /// <param name="writer">Потік запису XML.</param>
+        //public string FileExtension { get { return ".xml"; } }
+
         private void WriteProducers(IEnumerable<Producer> collection, XmlWriter writer) {
             writer.WriteStartElement("ProducersData");
             foreach (var obj in collection) {
@@ -38,11 +37,6 @@ namespace ToysProduction.Data.IO {
             writer.WriteEndElement();
         }
 
-        /// <summary>
-        /// Записує дані колекції іграшок у потік XML.
-        /// </summary>
-        /// <param name="collection">Колекція іграшок.</param>
-        /// <param name="writer">Потік запису XML.</param>
         private void WriteToys(IEnumerable<Toy> collection, XmlWriter writer) {
             writer.WriteStartElement("ToysData");
             foreach (var obj in collection) {
@@ -59,21 +53,11 @@ namespace ToysProduction.Data.IO {
             writer.WriteEndElement();
         }
 
-        /// <summary>
-        /// Записує всі дані набору даних у потік XML.
-        /// </summary>
-        /// <param name="dataSet">Набір даних.</param>
-        /// <param name="writer">Потік запису XML.</param>
-        private void WriteData(IDataSet dataSet, XmlWriter writer) {
+        protected virtual void WriteData(IDataSet dataSet, XmlWriter writer) {
             WriteProducers(dataSet.Producers, writer);
             WriteToys(dataSet.Toys, writer);
         }
 
-        /// <summary>
-        /// Зберігає дані набору даних у XML-файл.
-        /// </summary>
-        /// <param name="dataSet">Набір даних для збереження.</param>
-        /// <param name="filePath">Шлях до файлу.</param>
         public void Save(IDataSet dataSet, string filePath) {
             filePath = Path.ChangeExtension(filePath, FileExtension);
             XmlWriterSettings settings = new XmlWriterSettings();
@@ -98,11 +82,6 @@ namespace ToysProduction.Data.IO {
             }
         }
 
-        /// <summary>
-        /// Зчитує дані виробника з потоку XML і додає його до колекції.
-        /// </summary>
-        /// <param name="reader">Потік читання XML.</param>
-        /// <param name="collection">Колекція для додавання виробника.</param>
         private void ReadProducer(XmlReader reader, ICollection<Producer> collection) {
             Producer obj = new Producer();
             reader.ReadStartElement("Producer");
@@ -115,11 +94,6 @@ namespace ToysProduction.Data.IO {
             collection.Add(obj);
         }
 
-        /// <summary>
-        /// Зчитує дані іграшки з потоку XML і додає її до набору даних.
-        /// </summary>
-        /// <param name="reader">Потік читання XML.</param>
-        /// <param name="dataSet">Набір даних для додавання іграшки.</param>
         private void ReadToy(XmlReader reader, IDataSet dataSet) {
             Toy obj = new Toy();
             reader.ReadStartElement("Toy");
@@ -134,12 +108,7 @@ namespace ToysProduction.Data.IO {
             dataSet.Toys.Add(obj);
         }
 
-        /// <summary>
-        /// Зчитує всі дані з потоку XML і додає їх до набору даних.
-        /// </summary>
-        /// <param name="dataSet">Набір даних для заповнення.</param>
-        /// <param name="reader">Потік читання XML.</param>
-        private void ReadData(IDataSet dataSet, XmlReader reader) {
+        protected virtual void ReadData(IDataSet dataSet, XmlReader reader) {
             switch (reader.Name) {
                 case "Producer":
                     ReadProducer(reader, dataSet.Producers);
@@ -150,12 +119,6 @@ namespace ToysProduction.Data.IO {
             }
         }
 
-        /// <summary>
-        /// Завантажує дані з XML-файлу в набір даних.
-        /// </summary>
-        /// <param name="dataSet">Набір даних для заповнення.</param>
-        /// <param name="filePath">Шлях до файлу.</param>
-        /// <returns>True, якщо файл існує і дані завантажено; false, якщо файл відсутній.</returns>
         public bool Load(IDataSet dataSet, string filePath) {
             filePath = Path.ChangeExtension(filePath, FileExtension);
             if (!File.Exists(filePath)) {

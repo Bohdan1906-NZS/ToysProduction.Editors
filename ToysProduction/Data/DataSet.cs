@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using ToysProduction.Data.Interfaces;
 using ToysProduction.Entities;
 using ToysProduction.Data.Formatting;
 
 namespace ToysProduction.Data {
+    [Serializable]
     public class DataSet : IDataSet {
         protected readonly List<Producer> _producers;
         protected readonly List<Toy> _toys;

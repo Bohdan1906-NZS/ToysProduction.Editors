@@ -43,6 +43,7 @@
         <Compile Include="Data\DataSet.cs" />
         <Compile Include="Data\Formatting\FormattingMethods.cs" />
         <Compile Include="Data\Interfaces\IDataSet.cs" />
+        <Compile Include="Data\IO\BinaryFileIoController.cs" />
         <Compile Include="Data\IO\XmlFileIoController.cs" />
         <Compile Include="Data\Testing\DataCreation.cs" />
         <Compile Include="Entities\Producer.cs" />
@@ -50,6 +51,10 @@
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Common.Data\Common.Data.csproj">
+        <Project>{eaec09e1-2699-469b-91a6-47c477f50816}</Project>
+        <Name>Common.Data</Name>
+      </ProjectReference>
       <ProjectReference Include="..\Common\Common.csproj">
         <Project>{22b23e6d-b7d3-4e73-b375-820f9211f248}</Project>
         <Name>Common</Name>

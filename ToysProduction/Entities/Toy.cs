@@ -1,6 +1,8 @@
+using System;
 using Common.Entities;
 
 namespace ToysProduction.Entities {
+    [Serializable]
     public class Toy : Entity {
         public string Name { get; set; }
         public string Category { get; set; }
