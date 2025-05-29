@@ -1,6 +1,0 @@
-/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/Common/obj/Debug/Common.csproj.AssemblyReference.cache
-/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/Common/obj/Debug/Common.csproj.CoreCompileInputs.cache
-/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/Common/bin/Debug/Common.dll
-/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/Common/bin/Debug/Common.pdb
-/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/Common/obj/Debug/Common.dll
-/home/XXX-NZS-XXX/RiderProjects/ToysProduction.Editors/Common/obj/Debug/Common.pdb
