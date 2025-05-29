@@ -1,0 +1,17 @@
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Build outputs
+bin/
+obj/
+.Debug/
+.Release/
+
+# NuGet
+packages/
+*.nupkg
+
+# User-specific files
+*.user
+*.suo
