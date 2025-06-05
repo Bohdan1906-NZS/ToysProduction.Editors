@@ -1,21 +1,28 @@
 using System;
-using Common.ConsoleIO;
-using ToysProduction.ConsoleEditors.Studying;
+using Common.ConsoleUI;
+using ToysProduction.Data;
+using ToysProduction.Data.IO;
 
 namespace ToysProduction.ConsoleEditors {
     internal class Program {
-        static void Main(string[] args) {
-            Console.Title = "WorldDividing.ConsoleEditor (Стець А. М.)";
+        private static MainController _mainController = null;
+        private static DataContext _dataContext = null;
 
-            ConsoleSettings.SetConsoleParam();
+        private static void RunProgram() {
+            _dataContext = new DataContext(new BinaryFileIoController());
+            _dataContext.DirectoryName = @"..\..\files";
+            _mainController = new MainController(_dataContext);
+            _mainController.TestingDataCreation += MainController_TestingDataCreation;
+            _mainController.Run();
+        }
 
-            Console.WriteLine(" Реалізація редактора даних ПО \"Поділ Світу\"");
+        private static void MainController_TestingDataCreation(object sender, EventArgs e) {
+            _dataContext.CreateTestingData();
+        }
 
-            //EntitiesTraining.Run();
-            //DataTraining.Run();
-            FileIoTraining.Run();
-
-            Console.ReadKey(true);
+        private static void Main(string[] args) {
+            // FileIoTraining.Run();
+            RunProgram();
         }
     }
 }

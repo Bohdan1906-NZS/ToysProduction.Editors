@@ -5,14 +5,13 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{D08A742C-9959-40B6-8A69-57511A812FFA}</ProjectGuid>
-        <OutputType>Exe</OutputType>
+        <ProjectGuid>{85118CEA-8739-4A69-8229-698337401849}</ProjectGuid>
+        <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>ToysProduction.ConsoleEditors</RootNamespace>
-        <AssemblyName>ToysProduction.ConsoleEditors</AssemblyName>
+        <RootNamespace>Common.ConsoleUI</RootNamespace>
+        <AssemblyName>Common.ConsoleUI</AssemblyName>
         <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <PlatformTarget>AnyCPU</PlatformTarget>
@@ -40,17 +39,12 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Program.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="Studying\DataTraining.cs" />
-        <Compile Include="Studying\EntitiesTraining.cs" />
-        <Compile Include="Studying\FileIoTraining.cs" />
+        <Compile Include="MainController.cs" />
+        <Compile Include="MenuItem.cs" />
+        <Compile Include="SimpleCommandController.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Common.ConsoleUI\Common.ConsoleUI.csproj">
-        <Project>{85118cea-8739-4a69-8229-698337401849}</Project>
-        <Name>Common.ConsoleUI</Name>
-      </ProjectReference>
       <ProjectReference Include="..\Common.Data\Common.Data.csproj">
         <Project>{eaec09e1-2699-469b-91a6-47c477f50816}</Project>
         <Name>Common.Data</Name>
