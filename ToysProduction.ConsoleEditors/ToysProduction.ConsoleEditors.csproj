@@ -40,6 +40,8 @@
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Editing\ProducersEditor.cs" />
+        <Compile Include="Editing\ToysEditor.cs" />
         <Compile Include="MainController.cs" />
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>

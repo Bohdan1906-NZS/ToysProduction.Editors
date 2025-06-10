@@ -1,6 +1,7 @@
 using System;
 using Common.ConsoleUI;
 using Common.Data.IO.Interfaces;
+using ToysProduction.ConsoleEditors.Editing;
 using ToysProduction.Data.Formatting;
 using ToysProduction.Data.Interfaces;
 using ToysProduction.Data.IO;
@@ -14,6 +15,8 @@ namespace ToysProduction.ConsoleEditors {
         private readonly IDataContext _dataContext;
         private readonly IDataSet _dataSet;
         private MenuItem[] _menuItems;
+        private ProducersEditor _producersEditor;
+        private ToysEditor _toysEditor;
 
         /// <summary>
         /// Подія створення тестових даних.
@@ -30,6 +33,7 @@ namespace ToysProduction.ConsoleEditors {
             }
             _dataContext = dataContext;
             _dataSet = _dataContext;
+            CreateEditors();
             IniMenuItems();
             _commandController = new SimpleCommandController(_menuItems, PrepareScreen, PrepareRunning);
         }
@@ -42,16 +46,28 @@ namespace ToysProduction.ConsoleEditors {
         }
 
         /// <summary>
+        /// Створює редактори.
+        /// </summary>
+        private void CreateEditors() {
+            _producersEditor = new ProducersEditor(_dataSet);
+            _producersEditor.Saving += Editor_Saving;
+            _toysEditor = new ToysEditor(_dataSet);
+            _toysEditor.Saving += Editor_Saving;
+        }
+
+        /// <summary>
         /// Ініціалізує елементи меню.
         /// </summary>
         private void IniMenuItems() {
             _menuItems = new MenuItem[] {
                 new MenuItem("створити тестові дані", CreateTestingData),
                 new MenuItem("дані як текст", ShowAsText, true),
-                new MenuItem("видалити усі дані", Clear),
+                new MenuItem("видалити усі дані", Clear, true),
                 new MenuItem("зберегти дані", Save, true),
-                new MenuItem("зберегти дані як текст", SaveAsText, true), // Самостійне завдання 14a
-                new MenuItem("зберегти дані як...", SaveAs, true), // Самостійне завдання 15a
+                new MenuItem("зберегти дані як текст", SaveAsText, true),
+                new MenuItem("зберегти дані як...", SaveAs, true),
+                new MenuItem("редагування виробників ►", RunProducersEditing, true),
+                new MenuItem("редагування іграшок ►", RunToysEditing, true),
                 new MenuItem("вийти", null),
             };
         }
@@ -120,17 +136,18 @@ namespace ToysProduction.ConsoleEditors {
         }
 
         /// <summary>
-        /// Зберігає дані як текст (самостійне завдання 14a).
+        /// Зберігає дані як текст.
         /// </summary>
         private void SaveAsText() {
             try {
-                Console.Write("\nВведіть шлях до файлу (наприклад, \\files\\output.txt): ");
+                Console.Write("\nВведіть шлях до файлу (наприклад, ..\\..\\..\\files\\output.txt): ");
                 string filePath = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(filePath)) {
                     Console.WriteLine("Шлях не вказано.");
                     SimpleCommandController.StopToView();
                     return;
                 }
+
                 System.IO.File.WriteAllText(filePath, _dataContext.ToString());
                 Console.WriteLine($"Дані збережено у {filePath}");
             }
@@ -141,11 +158,11 @@ namespace ToysProduction.ConsoleEditors {
         }
 
         /// <summary>
-        /// Зберігає дані у вибраному форматі (самостійне завдання 15a).
+        /// Зберігає дані у вибраному форматі.
         /// </summary>
         private void SaveAs() {
             try {
-                Console.Write("\nВведіть шлях до файлу (наприклад, \\files\\data): ");
+                Console.Write("\nВведіть шлях до файлу (наприклад, ..\\..\\files\\data): ");
                 string filePath = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(filePath)) {
                     Console.WriteLine("Шлях не вказано.");
@@ -166,6 +183,26 @@ namespace ToysProduction.ConsoleEditors {
                 Console.WriteLine($"Помилка збереження: {ex.Message}");
             }
             SimpleCommandController.StopToView();
+        }
+
+        /// <summary>
+        /// Запускає редактор виробників.
+        /// </summary>
+        private void RunProducersEditing() {
+            _producersEditor.Run();
+        }
+
+        /// <summary>
+        /// Запускає редактор іграшок.
+        /// </summary>
+        private void RunToysEditing() {
+            _toysEditor.Run();
+        }
+
+        /// <summary>
+        /// Обробник події збереження.
+        private void Editor_Saving(object sender, EventArgs e) {
+            Save();
         }
     }
 }
