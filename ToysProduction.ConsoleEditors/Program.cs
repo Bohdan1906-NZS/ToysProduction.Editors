@@ -10,7 +10,7 @@ namespace ToysProduction.ConsoleEditors {
 
         private static void RunProgram() {
             _dataContext = new DataContext(new BinaryFileIoController());
-            _dataContext.DirectoryName = @"..\..\files";
+            _dataContext.DirectoryName = @"files";
             _mainController = new MainController(_dataContext);
             _mainController.TestingDataCreation += MainController_TestingDataCreation;
             _mainController.Run();

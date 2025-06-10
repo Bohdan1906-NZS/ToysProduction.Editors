@@ -116,7 +116,7 @@ namespace ToysProduction.ConsoleEditors.Studying {
             Console.WriteLine("dataContext2:\n" + dataContext2);
 
             Console.WriteLine(new string('=', Console.BufferWidth - 1));
-            string directoryName = @"..\..\files";
+            string directoryName = @"files";
             dataContext2.DirectoryName = directoryName;
             dataContext2.Save();
             dataContext.DirectoryName = directoryName;

@@ -1,0 +1,17 @@
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Build outputs (в любой папке)
+**/bin/
+**/obj/
+**/.Debug/
+**/.Release/
+
+# NuGet
+**/packages/
+*.nupkg
+
+# User-specific files
+*.user
+*.suo

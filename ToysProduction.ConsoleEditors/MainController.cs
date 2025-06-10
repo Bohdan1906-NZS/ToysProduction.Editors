@@ -1,10 +1,11 @@
 using System;
+using Common.ConsoleUI;
 using Common.Data.IO.Interfaces;
 using ToysProduction.Data.Formatting;
 using ToysProduction.Data.Interfaces;
 using ToysProduction.Data.IO;
 
-namespace Common.ConsoleUI {
+namespace ToysProduction.ConsoleEditors {
     /// <summary>
     /// Головний контролер консольного редактора.
     /// </summary>
@@ -123,7 +124,7 @@ namespace Common.ConsoleUI {
         /// </summary>
         private void SaveAsText() {
             try {
-                Console.Write("\nВведіть шлях до файлу (наприклад, ..\\..\\files\\output.txt): ");
+                Console.Write("\nВведіть шлях до файлу (наприклад, \\files\\output.txt): ");
                 string filePath = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(filePath)) {
                     Console.WriteLine("Шлях не вказано.");
@@ -144,7 +145,7 @@ namespace Common.ConsoleUI {
         /// </summary>
         private void SaveAs() {
             try {
-                Console.Write("\nВведіть шлях до файлу (наприклад, ..\\..\\files\\data): ");
+                Console.Write("\nВведіть шлях до файлу (наприклад, \\files\\data): ");
                 string filePath = Console.ReadLine();
                 if (string.IsNullOrWhiteSpace(filePath)) {
                     Console.WriteLine("Шлях не вказано.");
